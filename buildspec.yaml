@@ -10,7 +10,7 @@ phases:
     commands:
       - npm run build
       - aws cloudformation package --template-file cfn.yaml --s3-bucket artifacts-nextjs \
-                --s3-prefix $S3_BUILDS_PREFIX --output-template-file $TEMPLATE_FILE_NAME
+                --s3-prefix S3_BUILDS_PREFIX --output-template-file TEMPLATE_FILE_NAME
 artifacts:
   files:
     - '$TEMPLATE_FILE_NAME'
