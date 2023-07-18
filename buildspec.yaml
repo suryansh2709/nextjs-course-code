@@ -13,7 +13,8 @@ phases:
       - echo "Installing dependencies into src file"
       - npm run build
       - ls -la
-      - aws cloudformation package --template-file cfn.yaml --s3-bucket artifacts-nextjs --output-template-file template.yaml
+      - aws cloudformation package --template-file cfn.yaml --s3-bucket $S3_BUCKET \
+          --s3-prefix $S3_BUILDS_PREFIX --output-template-file $TEMPLATE_FILE_NAME
 artifacts:
   files:
     - '**/*'
