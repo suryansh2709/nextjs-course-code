@@ -12,6 +12,7 @@ phases:
       - cd $CODEBUILD_SRC_DIR
       - echo "Installing dependencies into src file"
       - npm run build
+      - mv * ./src/
       - ls -la
       - aws cloudformation package --s3-bucket $S3_BUCKET --output-template-file $TEMPLATE_FILE_NAME
 artifacts:
