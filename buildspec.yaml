@@ -8,6 +8,9 @@ phases:
       - npm install
   build:
     commands:
+      - echo "Changing into source directory $CODEBUILD_SRC_DIR"
+      - cd $CODEBUILD_SRC_DIR
+      - echo "Installing dependencies into src file"
       - npm run build
       - ls -la
       - aws cloudformation package --template-file cfn.yaml --s3-bucket artifacts-nextjs --output-template-file template.yaml
@@ -15,6 +18,3 @@ artifacts:
   files:
     - '**/*'
   discard-paths: yes
-post_build:
-  commands: 
-    
